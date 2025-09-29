@@ -1,61 +1,113 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# MobbiSaúde ♿
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Conectando Cuidado e Comunidade através do Compartilhamento de Equipamentos de Saúde.**
 
-## About Laravel
+![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel)
+![Livewire](https://img.shields.io/badge/Livewire-3.x-4E57E8?style=for-the-badge&logo=livewire)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-06B6D4?style=for-the-badge&logo=tailwindcss)
+![Alpine JS](https://img.shields.io/badge/Alpine_JS-3.x-8BC0D0?style=for-the-badge&logo=alpine.js)
+![PHP](https://img.shields.io/badge/PHP-8.4+-777BB4?style=for-the-badge&logo=php)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🎓 Sobre o Projeto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**MobbiSaúde** é uma plataforma web desenvolvida como **Trabalho de Graduação (TG)** para o curso de Análise e Desenvolvimento de Sistemas da **FATEC Jales - Prof. José Camargo**. O projeto foi idealizado e desenvolvido pelos alunos **Igor Gabriel Vinturini** e **João Pedro Merlotti**.
 
-## Learning Laravel
+O propósito central da plataforma é criar um ecossistema solidário para o empréstimo e locação de equipamentos de saúde (como cadeiras de rodas, camas hospitalares, muletas, etc.). A aplicação visa conectar pessoas que possuem equipamentos ociosos com aquelas que necessitam de uso temporário, promovendo a acessibilidade, a economia circular e o apoio mútuo na comunidade.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Inicialmente, o sistema opera com foco em empréstimos gratuitos, fortalecendo o laço comunitário, com uma estrutura contratual robusta para garantir a segurança e a responsabilidade de ambas as partes.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## ✨ Principais Funcionalidades
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* **🔐 Autenticação Segura:** Sistema completo de login, registro e recuperação de senha, com funcionalidade "Lembrar de Mim".
+* **👤 Gestão de Perfil:** Os usuários podem gerenciar suas informações pessoais, endereço, documentos e foto de perfil (avatar).
+* **🛠️ Gestão de Equipamentos:** Usuários logados podem cadastrar, editar e remover seus próprios equipamentos, incluindo múltiplas imagens e categorização por tipo.
+* **🔍 Busca e Navegação:** Interface pública para que visitantes possam navegar e buscar por tipos de equipamentos disponíveis na plataforma.
+* **📄 Sistema de Contratos:** Fluxo completo para a geração e aceite de contratos de empréstimo, exigindo o consentimento de ambas as partes (locador e locatário) para garantir a segurança da transação.
+* **🔒 URLs Seguras:** Utilização de UUIDs (`public_id`) nas URLs para evitar a exposição de IDs sequenciais e proteger a privacidade dos dados.
+* **📱 Interface Responsiva:** O layout se adapta perfeitamente a dispositivos móveis, tablets e desktops.
 
-## Laravel Sponsors
+## 🚀 Tecnologias Utilizadas (Tech Stack)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Este projeto foi construído utilizando a filosofia **TALL Stack**, que privilegia a produtividade e a criação de interfaces dinâmicas com o conforto do PHP no back-end.
 
-### Premium Partners
+* **Back-end:**
+    * [**PHP 8.4+**](https://www.php.net/)
+    * [**Laravel 12**](https://laravel.com/): O framework PHP robusto e elegante que serve como espinha dorsal da aplicação.
+* **Front-end & UI:**
+    * [**Livewire 3**](https://livewire.laravel.com/): Para a criação de interfaces dinâmicas e reativas sem sair do PHP.
+    * [**Alpine.js**](https://alpinejs.dev/): Para interatividade leve no front-end quando necessário.
+    * [**Tailwind CSS**](https://tailwindcss.com/): Um framework CSS utility-first para a criação de designs modernos e customizáveis.
+* **Banco de Dados:**
+    * Compatível com MySQL / PostgreSQL.
+* **Gerenciamento de Mídias:**
+    * [**Spatie Media Library**](https://spatie.be/docs/laravel-medialibrary/v11/introduction): Pacote robusto para associação de arquivos (imagens de equipamentos, avatares) aos models Eloquent.
+* **Ambiente de Desenvolvimento:**
+    * [**Laravel Sail**](https://laravel.com/docs/12.x/sail): Ambiente de desenvolvimento Docker para uma configuração rápida e consistente.
+    * [**MinIO**](https://min.io/): Armazenamento de objetos local compatível com a API do S3 da AWS.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## ⚙️ Instalação e Configuração
 
-## Contributing
+Siga os passos abaixo para executar o projeto em seu ambiente local.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/seu-usuario/mobbisaude.git](https://github.com/seu-usuario/mobbisaude.git)
+    cd mobbisaude
+    ```
 
-## Code of Conduct
+2.  **Instale as dependências do Composer:**
+    ```bash
+    composer install
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3.  **Copie o arquivo de ambiente:**
+    ```bash
+    cp .env.example .env
+    ```
 
-## Security Vulnerabilities
+4.  **Gere a chave da aplicação:**
+    ```bash
+    php artisan key:generate
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5.  **Configure seu arquivo `.env`:**
+    * Ajuste as credenciais do banco de dados (`DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`).
+    * Configure as variáveis para o MinIO/S3 se for usar armazenamento de arquivos local.
 
-## License
+6.  **Execute as migrations do banco de dados:**
+    ```bash
+    php artisan migrate
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+7.  **Crie o link simbólico para o armazenamento:**
+    ```bash
+    php artisan storage:link
+    ```
+
+8.  **Instale as dependências do NPM e compile os assets:**
+    ```bash
+    npm install
+    npm run dev
+    ```
+
+9.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    php artisan serve
+    ```
+
+Pronto! A aplicação estará rodando em `http://127.0.0.1:8000`.
+
+## ✍️ Autores
+
+| Nome                    | GitHub                               |
+| ----------------------- | ------------------------------------ |
+| **Igor Gabriel Vinturini** | `[Link para o GitHub do Igor]`       |
+| **João Pedro Merlotti** | [jpmerlotti](https://github.com/jpmerlotti) |
+
+Trabalho de Graduação apresentado à **[FATEC Jales](https://www.fatecjales.edu.br/)** como requisito parcial para obtenção do título de Tecnólogo em Análise e Desenvolvimento de Sistemas.
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
