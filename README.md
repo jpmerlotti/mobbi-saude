@@ -110,4 +110,4 @@ Trabalho de Graduação apresentado à **[FATEC Jales](https://www.fatecjales.ed
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
