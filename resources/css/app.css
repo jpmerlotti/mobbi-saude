@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+@import '../../vendor/filament/support/resources/css/index.css';
+@import '../../vendor/filament/actions/resources/css/index.css';
+@import '../../vendor/filament/forms/resources/css/index.css';
+@import '../../vendor/filament/infolists/resources/css/index.css';
+@import '../../vendor/filament/notifications/resources/css/index.css';
+@import '../../vendor/filament/schemas/resources/css/index.css';
+@import '../../vendor/filament/tables/resources/css/index.css';
+@import '../../vendor/filament/widgets/resources/css/index.css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source '../**/*.vue';
+
+@theme {
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --color-mobbi-blue-50: #F0F9FF;
+    --color-mobbi-blue-100: #E0F3FF;
+    --color-mobbi-blue-200: #BAE6FD;
+    --color-mobbi-blue-300: #7DD3FC;
+    --color-mobbi-blue-400: #38BDF8;
+    --color-mobbi-blue: #0EA5E9;
+    --color-mobbi-blue-600: #0284C7;
+    --color-mobbi-blue-700: #0369A1;
+    --color-mobbi-blue-800: #075985;
+    --color-mobbi-blue-900: #0C4A6E;
+
+    --color-mobbi-pink-50: #FDF2F8;
+    --color-mobbi-pink-100: #FCE7F3;
+    --color-mobbi-pink-200: #FBCFE8;
+    --color-mobbi-pink-300: #F9A8D4;
+    --color-mobbi-pink-400: #F472B6;
+    --color-mobbi-pink: #EC4899;
+    --color-mobbi-pink-600: #DB2777;
+    --color-mobbi-pink-700: #BE185E;
+    --color-mobbi-pink-800: #9D174D;
+    --color-mobbi-pink-900: #831843;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+.fi-input {
+    @apply focus:border-mobbi-pink focus:ring focus:ring-mobbi-pink !important;
+}
