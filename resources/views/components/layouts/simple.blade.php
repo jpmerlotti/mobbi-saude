@@ -13,7 +13,9 @@
     @filamentStyles()
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="h-full font-sans antialiased text-gray-800 bg-mobbi-blue">
+<body class="h-full font-sans antialiased text-gray-800 bg-neutral-100">
+
+
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
         {{ $slot }}
     </div>

@@ -6,12 +6,10 @@ use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Schemas\Components\Form;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\Rule;
 use Livewire\Component;
 
 #[Layout('components.layouts.simple', ['title' => 'Entrar'])]
@@ -19,39 +17,54 @@ class Login extends Component implements HasForms
 {
     use InteractsWithForms;
 
-    #[Rule('email|exists:users.email')]
-    public string $email = '';
+    public array $data = [];
 
-    #[Rule('required|string')]
-    public string $password = '';
-    
-    public bool $remember_me = false;
+    public function mount(): void
+    {
+        $this->form->fill([
+            'email' => '',
+            'password' => '',
+            'remember_me' => false,
+        ]);
+    }
 
+    // ASSINATURA CORRETA (v4)
     public function form(Schema $schema): Schema
     {
-        return $schema->components([
-            TextInput::make('email'),
-            TextInput::make('password')
-                ->password()
-                ->revealable(),
-            Checkbox::make('remember_me'),
-        ]);
+        return $schema
+            ->components([
+                TextInput::make('email')
+                    ->label('E-mail')
+                    ->required()
+                    ->email(),
+                TextInput::make('password')
+                    ->label('Senha')
+                    ->password()
+                    ->required()
+                    ->revealable(),
+                Checkbox::make('remember_me')
+                    ->label('Lembrar de mim'),
+            ])
+            ->statePath('data'); // Liga o formulário à propriedade $data
     }
 
     public function authenticate()
     {
+        // Pega os dados validados do formulário
+        $data = $this->form->getState();
+
         $credentials = [
-            'email' => $this->email,
-            'password' => $this->password
+            'email' => $data['email'],
+            'password' => $data['password']
         ];
 
-        if (!Auth::attempt($credentials, $this->remember_me)) {
+        if (!Auth::attempt($credentials, $data['remember_me'])) {
             throw ValidationException::withMessages([
-                'email' => __('auth.failed'),
+                'data.email' => __('auth.failed'),
             ]);
         }
 
-        return redirect()->intended('/home');
+        return redirect()->intended(route('home'));
     }
 
     public function render()

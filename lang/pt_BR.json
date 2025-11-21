@@ -1,4 +1,5 @@
 {
     "Password": "Senha",
-    "Remember me": "Lembrar de mim"
+    "Remember me": "Lembrar de mim",
+    "auth.failed": "Essas credenciais não foram encontradas no sistema."
 }

@@ -1,7 +1,7 @@
 services:
-    laravel.test:
+    mobbi-saude:
         build:
-            context: './vendor/laravel/sail/runtimes/8.4'
+            context: './docker/8.4'
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
@@ -9,7 +9,6 @@ services:
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
-            - '${APP_PORT:-80}:80'
             - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
         environment:
             WWWUSER: '${WWWUSER}'
@@ -19,8 +18,10 @@ services:
             IGNITION_LOCAL_SITES_PATH: '${PWD}'
         volumes:
             - '.:/var/www/html'
+            - './docker/8.4/vite.conf:/etc/supervisor/conf.d/vite.conf'
         networks:
             - sail
+            - dev_network
         depends_on:
             - pgsql
             - mailpit
@@ -36,7 +37,7 @@ services:
             POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
         volumes:
             - 'sail-pgsql:/var/lib/postgresql/data'
-            - './vendor/laravel/sail/database/pgsql/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
+            - './docker/pgsql/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
         networks:
             - sail
         healthcheck:
@@ -77,10 +78,15 @@ services:
                 - ready
                 - local
             retries: 3
-            timeout: 5s
+            timeout: 3s
 networks:
     sail:
         driver: bridge
+    dev_network:
+        external: true
+        name: dev_network
+
+
 volumes:
     sail-pgsql:
         driver: local

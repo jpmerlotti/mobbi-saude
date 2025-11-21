@@ -1,11 +1,9 @@
-<footer class="bg-gray-50 border-t border-gray-200">
+<footer class="bg-gray-50 border-t border-gray-200 min-h-full">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8">
             {{-- Coluna de Branding --}}
             <div class="md:col-span-2 lg:col-span-2">
-                <a href="{{ route('home') }}" class="text-2xl font-bold text-mobbi-blue" wire:navigate>
-                    Mobbi<span class="text-mobbi-pink">Saúde</span>
-                </a>
+                <x-logo />
                 <p class="mt-4 text-base text-gray-500">
                     Conectando cuidado e comunidade através do compartilhamento de equipamentos de saúde.
                 </p>
@@ -31,9 +29,8 @@
             <div>
                 <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">Navegação</h3>
                 <ul class="mt-4 space-y-2">
-                    <li><a href="#" class="text-base text-gray-500 hover:text-mobbi-pink transition-colors">Equipamentos</a></li>
-                    <li><a href="#" class="text-base text-gray-500 hover:text-mobbi-pink transition-colors">Serviços</a></li>
-                    <li><a href="#" class="text-base text-gray-500 hover:text-mobbi-pink transition-colors">Sobre Nós</a></li>
+                    <li><a href="{{ auth()->check() ? route('my-equipments.index') : route('home') }}" class="text-base text-gray-500 hover:text-mobbi-pink transition-colors">Equipamentos</a></li>
+                    <li><a href="{{ route('about-us') }}" class="text-base text-gray-500 hover:text-mobbi-pink transition-colors">Sobre Nós</a></li>
                 </ul>
             </div>
 
@@ -41,8 +38,8 @@
             <div>
                 <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">Ajuda</h3>
                 <ul class="mt-4 space-y-2">
-                    <li><a href="#" class="text-base text-gray-500 hover:text-mobbi-pink transition-colors">Contato</a></li>
-                    <li><a href="#" class="text-base text-gray-500 hover:text-mobbi-pink transition-colors">FAQ</a></li>
+                    <li><a href="{{ route('contact') }}" class="text-base text-gray-500 hover:text-mobbi-pink transition-colors">Contato</a></li>
+                    <li><a href="{{ route('support') }}" class="text-base text-gray-500 hover:text-mobbi-pink transition-colors">Suporte</a></li>
                 </ul>
             </div>
 
@@ -50,8 +47,7 @@
             <div>
                 <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">Legal</h3>
                 <ul class="mt-4 space-y-2">
-                    <li><a href="#" class="text-base text-gray-500 hover:text-mobbi-pink transition-colors">Termos de Serviço</a></li>
-                    <li><a href="#" class="text-base text-gray-500 hover:text-mobbi-pink transition-colors">Política de Privacidade</a></li>
+                    <li><a href="{{ route('terms.view') }}" class="text-base text-gray-500 hover:text-mobbi-pink transition-colors">Termos de Serviço</a></li>
                 </ul>
             </div>
         </div>

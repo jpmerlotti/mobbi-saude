@@ -15,11 +15,12 @@
             }
         </style>
 
+        @livewireStyles()
         @filamentStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
 
-    <body class="antialiased flex flex-col space-between">
+    <body class="antialiased flex flex-col space-between min-w-full min-h-full">
         <x-header />
 
         <main>
@@ -27,9 +28,11 @@
         </main>
 
         <x-footer />
-        @livewire('notifications')
 
+        @livewireStyles()
+        @livewire('notifications')
+        @livewireScripts()
         @filamentScripts
-        @vite('resources/js/app.js')
+        @stack('scripts')
     </body>
 </html>

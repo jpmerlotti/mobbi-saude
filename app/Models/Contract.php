@@ -5,22 +5,24 @@ namespace App\Models;
 use App\Traits\HasPublicId;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Storage;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Contract extends Model implements HasMedia
+class Contract extends Model
 {
-    use InteractsWithMedia, HasPublicId;
+    use HasPublicId;
 
     protected $fillable = [
         'rental_id',
         'type',
         'content',
         'status',
+        'pdf_path'
     ];
 
     public function casts(): array
-    {   
+    {
         return [
             'lessee_signed_at' => 'datetime',
             'lessor_signed_at' => 'datetime',
@@ -45,6 +47,11 @@ class Contract extends Model implements HasMedia
     | Helpers
     |--------------------------------------------------------------------------
     */
+
+    public function pdf()
+    {
+        return Storage::disk('public')->url($this->pdf_path);
+    }
 
     public function isSignedByLessee(): bool
     {
